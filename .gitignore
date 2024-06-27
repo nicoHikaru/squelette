@@ -1,0 +1,6 @@
+vendor
+.DS_Store
+.env
+public/phpMyAdmin
+public/adminer
+my-db

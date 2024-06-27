@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_scriptphp
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes: 
+        - ./my-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: teste
+    ports: 
+        - "3306:3306"
+    networks:
+        - dev
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin_scriptphp
+    restart: always
+    ports:
+        - 8080:80
+    environment:
+        PMA_HOST: db
+    networks:
+        - dev
+
+  www:
+    build: php
+    container_name: scriptphp
+    ports: 
+        - "8741:80"
+    volumes: 
+       - ./:/var/www
+    restart: always
+    networks: 
+        - dev    
+
+networks: 
+    dev:
+volumes: 
+    db-data:

@@ -1,0 +1,20 @@
+{
+    "name": "nicolas/api-avion",
+    "require": {
+        "symfony/var-dumper": "^6.0",
+        "filp/whoops": "^2.14",
+        "twig/twig": "^3.0",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
+        "nyholm/psr7": "^1.4",
+        "nyholm/psr7-server": "^1.0",
+        "guzzlehttp/psr7": "^2",
+        "laminas/laminas-diactoros": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/",
+            "Config\\":"config/"
+        }
+    }
+}
