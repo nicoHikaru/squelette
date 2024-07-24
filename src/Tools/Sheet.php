@@ -36,4 +36,31 @@ class Sheet
 
         return $dataSpreadSheet;
     }
+
+    public static function getTitleXlsx(array $dataFile)
+    {
+        $titleBySheet = [];
+        foreach($dataFile as $key => $sheet) {
+            $key++;
+            $titleBySheet['sheet'.$key] = $sheet[0];
+        }
+
+        return $titleBySheet;
+    }
+
+    public static function getContentXlsx(array $dataFile)
+    {
+        $contentBySheet = [];
+        foreach($dataFile as $key => $sheet) {
+            
+            $contentBySheet[] = $sheet;
+        }
+
+        $contentSheet = [];
+        foreach($contentBySheet as $content)
+        {
+            $contentSheet[] = array_slice($content,1);
+        }
+        return $contentSheet;
+    }
 }
